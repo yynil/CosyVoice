@@ -285,8 +285,9 @@ class CosyVoice2Model(CosyVoiceModel):
                  llm: torch.nn.Module,
                  flow: torch.nn.Module,
                  hift: torch.nn.Module,
-                 fp16: bool):
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+                 fp16: bool,
+                 device: str):
+        self.device = torch.device(device)
         self.llm = llm
         self.flow = flow
         self.hift = hift
