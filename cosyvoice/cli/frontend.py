@@ -157,6 +157,10 @@ class CosyVoiceFrontEnd:
         model_input = {'text': tts_text_token, 'text_len': tts_text_token_len, 'llm_embedding': embedding, 'flow_embedding': embedding}
         return model_input
 
+    def frontend_tts(self, tts_text):
+        tts_text_token, tts_text_token_len = self._extract_text_token(tts_text)
+        model_input = {'text': tts_text_token, 'text_len': tts_text_token_len}
+        return model_input
     def frontend_zero_shot(self, tts_text, prompt_text, prompt_speech_16k, resample_rate):
         tts_text_token, tts_text_token_len = self._extract_text_token(tts_text)
         prompt_text_token, prompt_text_token_len = self._extract_text_token(prompt_text)
